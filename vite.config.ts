@@ -7,6 +7,7 @@ import autoprefixer from 'autoprefixer'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/code-lab/',
   plugins: [vue()],
   css: {
     postcss: {
