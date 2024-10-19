@@ -1,6 +1,7 @@
 # code-lab
 
 Редактор кода с просмотром результата. Аналог Codepen.
+Посмотреть можно тут https://samylov.github.io/code-lab/
 
 ## Project Setup
 
