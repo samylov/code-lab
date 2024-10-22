@@ -44,7 +44,7 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 import ace from 'ace-builds'
 import viewerTemplate from '@/templates/viewer'
 
-ace.config.set('basePath', '/node_modules/ace-builds/src-noconflict')
+ace.config.set('basePath', 'ace')
 
 const htmlEditor = ref<HTMLDivElement | null>(null)
 const cssEditor = ref<HTMLDivElement | null>(null)
@@ -57,8 +57,6 @@ let htmlAceEditor: ace.Ace.Editor,
   jsAceEditor: ace.Ace.Editor
 
 const messageListener = (event: MessageEvent) => {
-  console.log(event)
-
   if (['error', 'log'].includes(event.data.type)) {
     consoleLogs.value.push(event.data.message)
   }
