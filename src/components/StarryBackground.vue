@@ -38,7 +38,7 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   z-index: -1; /* Чтобы фон был за контентом */
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  background: radial-gradient(ellipse at bottom, #24292e 0%, #21262a 100%);
   overflow: hidden;
 }
 

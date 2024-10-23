@@ -1,4 +1,8 @@
-export default (htmlCode: string, cssCode: string, jsCode: string) => {
+export const viewerTemplate = (
+  htmlCode: string,
+  cssCode: string,
+  jsCode: string,
+) => {
   return `
       <!DOCTYPE html>
       <html lang="en">
@@ -23,3 +27,12 @@ export default (htmlCode: string, cssCode: string, jsCode: string) => {
       </html>
     `
 }
+
+export const htmlTemplate = '<h1>Hello World</h1>'
+
+export const cssTemplate = `h1 { 
+  color: DarkSlateGrey; 
+  font-family: 'Verdana', sans-serif; 
+}`
+
+export const jsTemplate = 'console.log("Hello from JavaScript");'

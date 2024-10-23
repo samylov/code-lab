@@ -1,12 +1,7 @@
 <template>
   <div class="flex flex-col py-4">
     <div class="flex justify-end">
-      <button
-        @click="updatePreview"
-        class="mx-4 bg-slate-800 text-white p-2 rounded w-12"
-      >
-        Run
-      </button>
+      <MagicButton @click="updatePreview"> Run </MagicButton>
     </div>
 
     <div class="flex space-x-4 px-4">
@@ -41,7 +36,7 @@
       <div
         class="console-output mt-4 p-2 text-white basis-3/12 border border-zinc-300 rounded ace-github-dark"
       >
-        <p>Console output:</p>
+        <p class="font-bold text-zinc-300">Console output:</p>
         <div v-for="(log, index) in consoleLogs" :key="index">{{ log }}</div>
       </div>
     </div>
@@ -51,7 +46,13 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import ace from 'ace-builds'
-import viewerTemplate from '@/templates/viewer'
+import {
+  viewerTemplate,
+  htmlTemplate,
+  cssTemplate,
+  jsTemplate,
+} from '@/templates'
+import MagicButton from './MagicButton.vue'
 
 ace.config.set('basePath', 'ace')
 
@@ -73,7 +74,7 @@ const messageListener = (event: MessageEvent) => {
 
 onMounted(() => {
   if (htmlEditor.value) {
-    const htmlCode = localStorage.getItem('htmlCode') || '<h1>Hello World</h1>'
+    const htmlCode = localStorage.getItem('htmlCode') || htmlTemplate
 
     htmlAceEditor = ace.edit(htmlEditor.value)
     htmlAceEditor.session.setMode('ace/mode/html')
@@ -82,7 +83,7 @@ onMounted(() => {
   }
 
   if (cssEditor.value) {
-    const cssCode = localStorage.getItem('cssCode') || 'h1 { color: tomato; }'
+    const cssCode = localStorage.getItem('cssCode') || cssTemplate
 
     cssAceEditor = ace.edit(cssEditor.value)
     cssAceEditor.session.setMode('ace/mode/css')
@@ -91,8 +92,7 @@ onMounted(() => {
   }
 
   if (jsEditor.value) {
-    const jsCode =
-      localStorage.getItem('jsCode') || 'console.log("Hello from JavaScript");'
+    const jsCode = localStorage.getItem('jsCode') || jsTemplate
 
     jsAceEditor = ace.edit(jsEditor.value)
     jsAceEditor.session.setMode('ace/mode/javascript')
@@ -127,7 +127,7 @@ const updatePreview = () => {
 
 <style scoped>
 .output-frame {
-  background-color: white;
+  background-color: #e5e5e5b3;
 }
 
 .console-output {
