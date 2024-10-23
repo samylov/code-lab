@@ -1,16 +1,28 @@
 <template>
-  <div class="app">
-    <RouterView />
+  <div id="app">
+    <StarryBackground />
+    <div class="content">
+      <RouterView />
+    </div>
   </div>
 </template>
 
-<style scoped>
-.app {
+<script setup lang="ts">
+import StarryBackground from './components/StarryBackground.vue'
+</script>
+
+<style>
+#app {
+  position: relative;
   min-height: 100vh;
-  background: linear-gradient(
-    68.6deg,
-    rgb(252, 165, 241) 1.8%,
-    rgb(181, 255, 255) 100.5%
-  );
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
 }
 </style>

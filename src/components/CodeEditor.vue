@@ -11,28 +11,37 @@
 
     <div class="flex space-x-4 px-4">
       <div class="editor flex-1 flex flex-col">
-        <label>HTML</label>
-        <div ref="htmlEditor" class="h-36 border p-2 rounded"></div>
+        <label class="font-bold text-zinc-300">HTML</label>
+        <div
+          ref="htmlEditor"
+          class="h-36 border border-zinc-300 p-2 rounded"
+        ></div>
       </div>
       <div class="editor flex-1 flex flex-col">
-        <label>CSS</label>
-        <div ref="cssEditor" class="h-36 border p-2 rounded"></div>
+        <label class="font-bold text-zinc-300">CSS</label>
+        <div
+          ref="cssEditor"
+          class="h-36 border border-zinc-300 p-2 rounded"
+        ></div>
       </div>
       <div class="editor flex-1 flex flex-col">
-        <label>JavaScript</label>
-        <div ref="jsEditor" class="h-36 border p-2 rounded"></div>
+        <label class="font-bold text-zinc-300">JavaScript</label>
+        <div
+          ref="jsEditor"
+          class="h-36 border border-zinc-300 p-2 rounded"
+        ></div>
       </div>
     </div>
 
     <div class="flex space-x-4 px-4">
       <iframe
         ref="outputFrame"
-        class="output-frame basis-9/12 w-full h-96 mt-4 border border-gray-300 rounded"
+        class="output-frame basis-9/12 w-full h-96 mt-4 border border-zinc-300 rounded"
       ></iframe>
       <div
-        class="console-output mt-4 p-2 bg-slate-800 text-white basis-3/12 rounded"
+        class="console-output mt-4 p-2 text-white basis-3/12 border border-zinc-300 rounded ace-github-dark"
       >
-        <p>Console:</p>
+        <p>Console output:</p>
         <div v-for="(log, index) in consoleLogs" :key="index">{{ log }}</div>
       </div>
     </div>
@@ -68,6 +77,7 @@ onMounted(() => {
 
     htmlAceEditor = ace.edit(htmlEditor.value)
     htmlAceEditor.session.setMode('ace/mode/html')
+    htmlAceEditor.setTheme('ace/theme/github_dark')
     htmlAceEditor.setValue(htmlCode, 1)
   }
 
@@ -76,6 +86,7 @@ onMounted(() => {
 
     cssAceEditor = ace.edit(cssEditor.value)
     cssAceEditor.session.setMode('ace/mode/css')
+    cssAceEditor.setTheme('ace/theme/github_dark')
     cssAceEditor.setValue(cssCode, 1)
   }
 
@@ -85,6 +96,7 @@ onMounted(() => {
 
     jsAceEditor = ace.edit(jsEditor.value)
     jsAceEditor.session.setMode('ace/mode/javascript')
+    jsAceEditor.setTheme('ace/theme/github_dark')
     jsAceEditor.setValue(jsCode, 1)
   }
 
