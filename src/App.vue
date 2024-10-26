@@ -17,6 +17,7 @@ import StarryBackground from './components/StarryBackground.vue'
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-y: hidden;
 }
 
 .content {
